@@ -1,12 +1,12 @@
-api= "AIzaSyAt0dlVOUXINcIXJ_eR2RoRj6nOPxaby-8"
-
-
+from flask import Flask, render_template, request
 import google.generativeai as palm
+import os
+api= os.getenv("MAKERSUITE_API_TOKEN")
+
 palm.configure(api_key=api)
 model = {"model": "models/chat-bison-001"}
 # render_template renders the html template & return them as a response
 # request handles the incoming request (like the prompt)
-from flask import Flask, render_template, request
 
 # this creates the web application - initialising the process
 app = Flask(__name__)
